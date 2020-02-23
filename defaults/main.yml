@@ -1,0 +1,7 @@
+---
+# defaults file for onr-homeassistant-docker
+onr_homeassistant_docker_service_after: influxdb.service
+onr_homeassistant_docker_image_name: homeassistant/home-assistant
+
+onr_homeassistant_docker_service_user: "{{ ansible_user }}"
+onr_homeassistant_docker_service_group: docker
