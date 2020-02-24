@@ -3,5 +3,5 @@
 onr_homeassistant_docker_service_after: influxdb.service
 onr_homeassistant_docker_image_name: homeassistant/home-assistant
 
-onr_homeassistant_docker_user: "{{ ansible_user }}"
+onr_homeassistant_docker_user: "{{ ansible_user_id }}"
 onr_homeassistant_docker_service_group: docker
