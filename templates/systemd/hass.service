@@ -6,13 +6,13 @@ After=docker.service {{ onr_homeassistant_docker_service_after }}
 [Service]
 #ExecStartPre=/bin/sleep 1
 #ExecStartPre=/usr/bin/docker pull homeassistant/home-assistant
-ExecStart=/usr/bin/docker run --rm --privileged --name=home-assistant -v=/home/{{ onr_homeassistant_docker_service_user }}/homeass/config:/config -v=/etc/localtime:/etc/localtime:ro --net=host {{ onr_homeassistant_docker_image_name }}
+ExecStart=/usr/bin/docker run --rm --privileged --name=home-assistant -v=/home/{{ onr_homeassistant_docker_user }}/homeass/config:/config -v=/etc/localtime:/etc/localtime:ro --net=host {{ onr_homeassistant_docker_image_name }}
 ExecStop=/usr/bin/docker stop home-assistant
 ExecReload=/usr/bin/docker restart home-assistant
-User={{ onr_homeassistant_docker_service_user }}
+User={{ onr_homeassistant_docker_user }}
 Group={{ onr_homeassistant_docker_service_group }}
 Environment=PATH=/bin:/usr/bin:/usr/local/bin:$PATH
-WorkingDirectory=/home/{{ onr_homeassistant_docker_service_user }}/homeass
+WorkingDirectory=/home/{{ onr_homeassistant_docker_user }}/homeass
 TimeoutSec=600
 
 [Install]
